@@ -16,7 +16,16 @@ public class Car {
      * return - the amount of miles actually driven
      */
     public int drive(int miles) {
-        return -1;
+        double gals = (double)miles/this.mileage;
+        System.out.println(gals);
+        if(this.gas-gals>0){
+            this.gas -= gals;
+            return miles;
+        }else {
+            int maxMiles = (int)(this.gas*(double)this.mileage);
+            this.gas = 0;
+            return maxMiles;
+        }
     }
 
     /**
@@ -25,7 +34,7 @@ public class Car {
      * @param gallons the amount of gallons to fill
      */
     public void fill(int gallons) {
-
+        this.gas += (double) gallons;
     }
 
 
